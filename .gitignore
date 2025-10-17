@@ -1,0 +1,56 @@
+# Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+# C extensions
+*.so
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python/
+*.egg-info/
+.installed.files
+htmlcov/
+.nox/
+.tox/
+.venv/
+venv/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+.virtualenvs/
+.python-version
+.idea/
+.vscode/
+
+# Django stuff
+# SQLite database
+*.sqlite3
+# Media files (uploaded by users)
+/media/
+# Static files (collected)
+/static/
+# Local settings file (often contains sensitive data like SECRET_KEY and database credentials)
+local_settings.py
+# Example of a sensitive file in the root
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# My custom logs/temp files
+*.log
+*.tmp
+
+README.md
