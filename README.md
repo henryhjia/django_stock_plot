@@ -57,7 +57,7 @@ The app will:
   python manage.py runserver
   ```
   3. Open the app in your browser
-  Visit [http://127.0.0.0:8000/stock_plot](http:/127/0/0/1:8000/stock_plot)
+  Visit http://127.0.0.1:8000/stock_plot to access **Stock Price Viewer**
 
 
 ## Unit Test in local enrionment
