@@ -3,6 +3,7 @@ import yfinance as yf
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import io
 import urllib, base64
 import pandas as pd
@@ -25,17 +26,18 @@ def index(request):
             max_price = np.max(close_prices)
             mean_price = np.mean(close_prices)
 
-            plt.clf()
-            plt.figure(figsize=(10, 6))
-            plt.plot(data.index, close_prices)
+            fig = plt.figure(figsize=(10, 6))
+            plt.plot(data.index, close_prices, marker='o', markersize=4)
             plt.title(f'{ticker} Stock Price')
             plt.xlabel('Date')
             plt.ylabel('Price')
-            
-            for date in data.index:
-                plt.axvline(x=date, color='r', linestyle='--', linewidth=0.5)
+            plt.grid(axis='both', linestyle='--', alpha=0.7)
 
-            fig = plt.gcf()
+            ax = plt.gca()
+            ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+            fig.autofmt_xdate() # Auto-formats and rotates the date labels
+            plt.xticks(rotation=90) # Force 90-degree rotation
+
             buf = io.BytesIO()
             fig.savefig(buf, format='png')
             buf.seek(0)
@@ -47,7 +49,7 @@ def index(request):
                 'min_price': min_price,
                 'max_price': max_price,
                 'mean_price': mean_price,
-                'data_table': data.tail(20).to_html(classes='table table-striped'),
+                'data_table': data.sort_index(ascending=False).head(20).to_html(classes='table table-striped'),
             })
         except Exception as e:
             error = f"An error occurred: {e}"
