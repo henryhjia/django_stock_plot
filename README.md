@@ -49,7 +49,7 @@ The app will:
 ## Running the Application Locally
   1. Activate the virtual environment 
   ```
-  source venv/bin/activate
+  source .venv/bin/activate
   ```
   2. Start the Django application
   ```
